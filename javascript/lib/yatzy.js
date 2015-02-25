@@ -1,15 +1,15 @@
-var Yatzy = function(d1, d2, d3, d4, _5) { 
+var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) { 
 	// TODO rename params 
 	// TODO call only cunstructor, not functions directly
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
 	
 	// TODO Init geht auch leichter
     var dice = [];
-    dice[0] = d1;
-    dice[1] = d2;
-    dice[2] = d3;
-    dice[3] = d4;
-    dice[4] = _5;
+    dice[0] = eyesOfDice1;
+    dice[1] = eyesOfDice2;
+    dice[2] = eyesOfDice3;
+    dice[3] = eyesOfDice4;
+    dice[4] = eyesOfDice5;
 
     this.fours = function()
     {
@@ -46,14 +46,14 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
 
 
 // TODO use Yatzy.prototype.chance 
-Yatzy.chance = function(d1, d2, d3, d4, d5) {
+Yatzy.chance = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
     var total = 0;
     // TODO use reduce
-    total += d1;
-    total += d2;
-    total += d3;
-    total += d4;
-    total += d5;
+    total += eyesOfDice1;
+    total += eyesOfDice2;
+    total += eyesOfDice3;
+    total += eyesOfDice4;
+    total += eyesOfDice5;
     return total;
 }
 
@@ -70,47 +70,47 @@ Yatzy.yatzy = function() {
     return 0;
 }
  // TODO make member function + remove duplication
-Yatzy.ones = function(d1, d2, d3, d4, d5) {
+Yatzy.ones = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
     var sum = 0;
-    if (d1 == 1) sum++;
-    if (d2 == 1) sum++;
-    if (d3 == 1) sum++;
-    if (d4 == 1) sum++;
-    if (d5 == 1)
+    if (eyesOfDice1 == 1) sum++;
+    if (eyesOfDice2 == 1) sum++;
+    if (eyesOfDice3 == 1) sum++;
+    if (eyesOfDice4 == 1) sum++;
+    if (eyesOfDice5 == 1)
         sum++;
 
     return sum;
 }
 
-Yatzy.twos = function(d1, d2, d3, d4, d5) {
+Yatzy.twos = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
     var sum = 0;
-    if (d1 == 2) sum += 2;
-    if (d2 == 2) sum += 2;
-    if (d3 == 2) sum += 2;
-    if (d4 == 2) sum += 2;
-    if (d5 == 2) sum += 2;
+    if (eyesOfDice1 == 2) sum += 2;
+    if (eyesOfDice2 == 2) sum += 2;
+    if (eyesOfDice3 == 2) sum += 2;
+    if (eyesOfDice4 == 2) sum += 2;
+    if (eyesOfDice5 == 2) sum += 2;
     return sum;
 }
 
-Yatzy.threes = function(d1, d2, d3, d4, d5) {
+Yatzy.threes = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
     var s;
     s = 0;
-    if (d1 == 3) s += 3;
-    if (d2 == 3) s += 3;
-    if (d3 == 3) s += 3;
-    if (d4 == 3) s += 3;
-    if (d5 == 3) s += 3;
+    if (eyesOfDice1 == 3) s += 3;
+    if (eyesOfDice2 == 3) s += 3;
+    if (eyesOfDice3 == 3) s += 3;
+    if (eyesOfDice4 == 3) s += 3;
+    if (eyesOfDice5 == 3) s += 3;
     return s;
 }
 
-Yatzy.score_pair = function(d1, d2, d3, d4, d5)
+Yatzy.score_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    counts[d1-1]++;
-    counts[d2-1]++;
-    counts[d3-1]++;
-    counts[d4-1]++;
-    counts[d5-1]++;
+    counts[eyesOfDice1-1]++;
+    counts[eyesOfDice2-1]++;
+    counts[eyesOfDice3-1]++;
+    counts[eyesOfDice4-1]++;
+    counts[eyesOfDice5-1]++;
     var at;
     for (at = 0; at != 6; at++)
         if (counts[6-at-1] >= 2)
@@ -118,14 +118,14 @@ Yatzy.score_pair = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.two_pair = function(d1, d2, d3, d4, d5)
+Yatzy.two_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    counts[d1-1]++;
-    counts[d2-1]++
-    counts[d3-1]++
-    counts[d4-1]++;
-    counts[d5-1]++;
+    counts[eyesOfDice1-1]++;
+    counts[eyesOfDice2-1]++
+    counts[eyesOfDice3-1]++
+    counts[eyesOfDice4-1]++;
+    counts[eyesOfDice5-1]++;
     var n = 0;
     var score = 0;
     for (i = 0; i < 6; i += 1)
@@ -140,45 +140,45 @@ Yatzy.two_pair = function(d1, d2, d3, d4, d5)
 }
 
 // TODO Renaming
-Yatzy.four_of_a_kind = function(_1, _2, d3, d4, d5)
+Yatzy.four_of_a_kind = function(_1, _2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var tallies;
     tallies = [0, 0, 0, 0, 0, 0, 0, 0]
     tallies[_1-1]++;
     tallies[_2-1]++;
-    tallies[d3-1]++;
-    tallies[d4-1]++;
-    tallies[d5-1]++;
+    tallies[eyesOfDice3-1]++;
+    tallies[eyesOfDice4-1]++;
+    tallies[eyesOfDice5-1]++;
     for (i = 0; i < 6; i++)
         if (tallies[i] >= 4)
             return (i+1) * 4;
     return 0;
 }
 
-Yatzy.three_of_a_kind = function(d1, d2, d3, d4, d5)
+Yatzy.three_of_a_kind = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var t;
     t = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    t[d1-1]++;
-    t[d2-1]++;
-    t[d3-1]++;
-    t[d4-1]++;
-    t[d5-1]++;
+    t[eyesOfDice1-1]++;
+    t[eyesOfDice2-1]++;
+    t[eyesOfDice3-1]++;
+    t[eyesOfDice4-1]++;
+    t[eyesOfDice5-1]++;
     for (i = 0; i < 6; i++)
         if (t[i] >= 3)
             return (i+1) * 3;
     return 0;
 }
 
-Yatzy.smallStraight = function(d1, d2, d3, d4, d5)
+Yatzy.smallStraight = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var tallies;
     tallies = [0, 0, 0, 0, 0, 0, 0]
-    tallies[d1-1] += 1;
-    tallies[d2-1] += 1;
-    tallies[d3-1] += 1;
-    tallies[d4-1] += 1;
-    tallies[d5-1] += 1;
+    tallies[eyesOfDice1-1] += 1;
+    tallies[eyesOfDice2-1] += 1;
+    tallies[eyesOfDice3-1] += 1;
+    tallies[eyesOfDice4-1] += 1;
+    tallies[eyesOfDice5-1] += 1;
     if (tallies[0] == 1 &&
         tallies[1] == 1 &&
         tallies[2] == 1 &&
@@ -188,15 +188,15 @@ Yatzy.smallStraight = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.largeStraight = function(d1, d2, d3, d4, d5)
+Yatzy.largeStraight = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var tallies;
     tallies = [0, 0, 0, 0,0,0,0,0];
-    tallies[d1-1] += 1;
-    tallies[d2-1] += 1;
-    tallies[d3-1] += 1;
-    tallies[d4-1] += 1;
-    tallies[d5-1] += 1;
+    tallies[eyesOfDice1-1] += 1;
+    tallies[eyesOfDice2-1] += 1;
+    tallies[eyesOfDice3-1] += 1;
+    tallies[eyesOfDice4-1] += 1;
+    tallies[eyesOfDice5-1] += 1;
     if (tallies[1] == 1 &&
         tallies[2] == 1 &&
         tallies[3] == 1 &&
@@ -206,7 +206,7 @@ Yatzy.largeStraight = function(d1, d2, d3, d4, d5)
     return 0;
 }
 
-Yatzy.fullHouse = function(d1, d2, d3, d4, d5)
+Yatzy.fullHouse = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
 {
     var tallies;
     var  _2 = false;
@@ -219,11 +219,11 @@ Yatzy.fullHouse = function(d1, d2, d3, d4, d5)
 
 
     tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-    tallies[d1-1] += 1;
-    tallies[d2-1] += 1;
-    tallies[d3-1] += 1;
-    tallies[d4-1] += 1;
-    tallies[d5-1] += 1;
+    tallies[eyesOfDice1-1] += 1;
+    tallies[eyesOfDice2-1] += 1;
+    tallies[eyesOfDice3-1] += 1;
+    tallies[eyesOfDice4-1] += 1;
+    tallies[eyesOfDice5-1] += 1;
 
     for (i = 0; i != 6; i += 1)
         if (tallies[i] == 2) {
