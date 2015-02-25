@@ -32,15 +32,8 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     }
     
     this.chance = function() {
-    var total = 0;
-    // TODO use reduce
-    total += eyesOfDice1;
-    total += eyesOfDice2;
-    total += eyesOfDice3;
-    total += eyesOfDice4;
-    total += eyesOfDice5;
-    return total;
-}
+		return sum(dice);
+	}
 }
 
 // TODO don't use arguments but parameters
