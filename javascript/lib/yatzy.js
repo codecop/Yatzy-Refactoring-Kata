@@ -4,19 +4,19 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
 	
 	// TODO Init geht auch leichter
-    this.dice = [];
-    this.dice[0] = d1;
-    this.dice[1] = d2;
-    this.dice[2] = d3;
-    this.dice[3] = d4;
-    this.dice[4] = _5;
+    var dice = [];
+    dice[0] = d1;
+    dice[1] = d2;
+    dice[2] = d3;
+    dice[3] = d4;
+    dice[4] = _5;
 
     this.fours = function()
     {
         var sum;
         sum = 0;
         for (at = 0; at != 5; at++) { // TODO var at
-            if (this.dice[at] == 4) {
+            if (dice[at] == 4) {
                 sum += 4;
             }
         }
@@ -28,8 +28,8 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
     {
         s = 0
         var i
-        for (i = 0; i < this.dice.length; i++)
-            if (this.dice[i] == 5)
+        for (i = 0; i < dice.length; i++)
+            if (dice[i] == 5)
                 s = s + 5;
         return s;
     }
@@ -37,8 +37,8 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
     this.sixes = function()
     {
         sum = 0;
-        for (var at = 0; at < this.dice.length; at++)
-            if (this.dice[at] == 6)
+        for (var at = 0; at < dice.length; at++)
+            if (dice[at] == 6)
                 sum = sum + 6;
         return sum;
     }
