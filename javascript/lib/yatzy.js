@@ -1,4 +1,9 @@
-var Yatzy = function(d1, d2, d3, d4, _5) {
+var Yatzy = function(d1, d2, d3, d4, _5) { 
+	// TODO rename params 
+	// TODO call only cunstructor, not functions directly
+	// TODO naming of methods with _ and CamelCase => CamelCase is wished
+	
+	// TODO Init geht auch leichter
     this.dice = [];
     this.dice[0] = d1;
     this.dice[1] = d2;
@@ -10,7 +15,7 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
     {
         var sum;
         sum = 0;
-        for (at = 0; at != 5; at++) {
+        for (at = 0; at != 5; at++) { // TODO var at
             if (this.dice[at] == 4) {
                 sum += 4;
             }
@@ -18,6 +23,7 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
         return sum;
     }
 
+	// TODO ; missing
     this.fives = function()
     {
         s = 0
@@ -39,9 +45,10 @@ var Yatzy = function(d1, d2, d3, d4, _5) {
 }
 
 
-
+// TODO use Yatzy.prototype.chance 
 Yatzy.chance = function(d1, d2, d3, d4, d5) {
     var total = 0;
+    // TODO use reduce
     total += d1;
     total += d2;
     total += d3;
@@ -50,9 +57,11 @@ Yatzy.chance = function(d1, d2, d3, d4, d5) {
     return total;
 }
 
+// TODO don't use arguments but parameters
 Yatzy.yatzy = function() {
-    var counts = [0, 0, 0, 0, 0, 0, 0, 0];
+    var counts = [0, 0, 0, 0, 0, 0, 0, 0]; // TODO why?
     for (var i = 0; i != arguments.length; ++i) {
+		// TODO Formatting
     var die = arguments[i];
     counts[die-1]++; }
     for (i = 0; i != 6; i++)
@@ -60,7 +69,7 @@ Yatzy.yatzy = function() {
             return 50;
     return 0;
 }
-
+ // TODO make member function + remove duplication
 Yatzy.ones = function(d1, d2, d3, d4, d5) {
     var sum = 0;
     if (d1 == 1) sum++;
@@ -130,6 +139,7 @@ Yatzy.two_pair = function(d1, d2, d3, d4, d5)
         return 0;
 }
 
+// TODO Renaming
 Yatzy.four_of_a_kind = function(_1, _2, d3, d4, d5)
 {
     var tallies;
