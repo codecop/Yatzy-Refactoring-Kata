@@ -43,19 +43,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 }
 }
 
-
-// TODO use Yatzy.prototype.chance 
-Yatzy.chance = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-    var total = 0;
-    // TODO use reduce
-    total += eyesOfDice1;
-    total += eyesOfDice2;
-    total += eyesOfDice3;
-    total += eyesOfDice4;
-    total += eyesOfDice5;
-    return total;
-}
-
 // TODO don't use arguments but parameters
 Yatzy.yatzy = function() {
     var counts = [0, 0, 0, 0, 0, 0, 0, 0]; // TODO why?
