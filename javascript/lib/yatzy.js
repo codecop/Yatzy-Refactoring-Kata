@@ -1,15 +1,8 @@
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) { 
-	// TODO rename params 
 	// TODO call only cunstructor, not functions directly
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
 	
-	// TODO Init geht auch leichter
-    var dice = [];
-    dice[0] = eyesOfDice1;
-    dice[1] = eyesOfDice2;
-    dice[2] = eyesOfDice3;
-    dice[3] = eyesOfDice4;
-    dice[4] = eyesOfDice5;
+    var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
 
     this.fours = function()
     {
