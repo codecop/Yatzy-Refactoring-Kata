@@ -11,9 +11,9 @@ describe('Chance', function() {
 
 describe("Yatzy", function() {
     it("scores 50", function() {
-        assert.equal(50, Yatzy.yatzy(4,4,4,4,4));
-        assert.equal(50, Yatzy.yatzy(6,6,6,6,6));
-        assert.equal(0, Yatzy.yatzy(6,6,6,6,3));
+        assert.equal(50, new Yatzy(4,4,4,4,4).yatzy());
+        assert.equal(50, new Yatzy(6,6,6,6,6).yatzy());
+        assert.equal(0, new Yatzy(6,6,6,6,3).yatzy());
     });
 });
 

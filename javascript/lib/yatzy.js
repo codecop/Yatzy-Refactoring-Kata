@@ -34,20 +34,20 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.chance = function() {
 		return sum(dice);
 	}
+
+	function isAllDiceWith(eyes) {
+		return diceWith(eyes).length == dice.length;
+	}
+
+    this.yatzy = function() {
+		if (isAllDiceWith(dice[0])) {
+			return 50;
+		}
+		return 0;
+	}
+	
 }
 
-// TODO don't use arguments but parameters
-Yatzy.yatzy = function() {
-    var counts = [0, 0, 0, 0, 0, 0, 0, 0]; // TODO why?
-    for (var i = 0; i != arguments.length; ++i) {
-		// TODO Formatting
-    var die = arguments[i];
-    counts[die-1]++; }
-    for (i = 0; i != 6; i++)
-        if (counts[i] == 5)
-            return 50;
-    return 0;
-}
  // TODO make member function + remove duplication
 Yatzy.ones = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
     var sum = 0;
