@@ -3,17 +3,22 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
 	
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
-
+  
+	function sum(list) {
+		return list.reduce(function(sum, current) {
+			return sum + current;
+		}, 0);
+	}
+	
+	function diceWith(eyes) {
+		return dice.filter(function(eyeOfDice) { 
+			return eyeOfDice == eyes; 
+		});
+	}
+  
     this.fours = function()
     {
-        var sum;
-        sum = 0;
-        for (at = 0; at != 5; at++) { // TODO var at
-            if (dice[at] == 4) {
-                sum += 4;
-            }
-        }
-        return sum;
+		return sum(diceWith(4));
     }
 
 	// TODO ; missing
