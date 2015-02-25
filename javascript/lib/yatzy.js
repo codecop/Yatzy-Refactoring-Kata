@@ -21,24 +21,14 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return sum(diceWith(4));
     }
 
-	// TODO ; missing
     this.fives = function()
     {
-        s = 0
-        var i
-        for (i = 0; i < dice.length; i++)
-            if (dice[i] == 5)
-                s = s + 5;
-        return s;
+		return sum(diceWith(5));
     }
 
     this.sixes = function()
     {
-        sum = 0;
-        for (var at = 0; at < dice.length; at++)
-            if (dice[at] == 6)
-                sum = sum + 6;
-        return sum;
+		return sum(diceWith(6));
     }
 }
 
