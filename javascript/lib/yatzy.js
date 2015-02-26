@@ -46,6 +46,23 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return 0;
 	}
 	
+	function eyesWithCountOfAtLeast(count) {
+		var tallies = dice.reduce(function(prev, curr) {
+			prev[curr] = (prev[curr] || 0) + 1;
+		}, {});
+
+		for(var tally in tallies) {
+			if (tallies[tally] > count) {
+			}
+		}
+		// {5: 5}
+		// {1: 2, 4:2, 6: 1}
+	} 
+
+	this.score_pair = function() {
+		return max(eyesWithCountOfAtLeast(2)) * 2;
+	}
+	
 }
 
  // TODO make member function + remove duplication
@@ -83,7 +100,7 @@ Yatzy.threes = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyes
 }
 
 Yatzy.score_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
-{
+{//TODO rename to one_pair
     var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
     counts[eyesOfDice1-1]++;
     counts[eyesOfDice2-1]++;
