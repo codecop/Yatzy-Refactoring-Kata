@@ -69,6 +69,10 @@ describe("One pair", function() {
         assert.equal(6, Yatzy.score_pair(3,4,3,5,6));
         assert.equal(10, Yatzy.score_pair(5,3,3,3,5));
         assert.equal(12, Yatzy.score_pair(5,3,6,6,5));
+
+		// test explicitly to take larger pair
+        assert.equal(12, Yatzy.score_pair(3,3,6,6,5));
+        assert.equal(12, Yatzy.score_pair(6,6,1,3,3));
     });
 });
 
