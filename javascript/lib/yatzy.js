@@ -88,6 +88,10 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return max(eyesWithCountOfAtLeast(2)) * 2;
 	}
 
+	this.threeOfAKind = function() {
+		return max(eyesWithCountOfAtLeast(3)) * 3;
+	}
+
 }
 
 Yatzy.two_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
@@ -124,21 +128,6 @@ Yatzy.four_of_a_kind = function(_1, _2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
     for (i = 0; i < 6; i++)
         if (tallies[i] >= 4)
             return (i+1) * 4;
-    return 0;
-}
-
-Yatzy.three_of_a_kind = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
-{
-    var t;
-    t = [0, 0, 0, 0, 0, 0, 0, 0, 0]
-    t[eyesOfDice1-1]++;
-    t[eyesOfDice2-1]++;
-    t[eyesOfDice3-1]++;
-    t[eyesOfDice4-1]++;
-    t[eyesOfDice5-1]++;
-    for (i = 0; i < 6; i++)
-        if (t[i] >= 3)
-            return (i+1) * 3;
     return 0;
 }
 
