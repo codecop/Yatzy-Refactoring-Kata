@@ -61,11 +61,15 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return 0;
 	}
 
-	function eyesWithCountOfAtLeast(limit) {
-		var countsByEyes = dice.reduce(function(counter, current) {
+    function countEyes() {
+		return dice.reduce(function(counter, current) {
 			counter[current] = (counter[current] || 0) + 1;
 			return counter;
 		}, {});
+    }
+
+	function eyesWithCountOfAtLeast(limit) {
+		var countsByEyes = countEyes();
 
         eyes = [];
 		for(var eye in countsByEyes) {
