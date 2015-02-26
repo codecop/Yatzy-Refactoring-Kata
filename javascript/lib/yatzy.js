@@ -65,7 +65,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
         return Math.max.apply(null, list);
     }
 
-	this.score_pair = function() {
+	this.onePair = function() {
 		return max(eyesWithCountOfAtLeast(2)) * 2;
 	}
 
@@ -103,21 +103,6 @@ Yatzy.threes = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyes
     if (eyesOfDice4 == 3) s += 3;
     if (eyesOfDice5 == 3) s += 3;
     return s;
-}
-
-Yatzy.score_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
-{//TODO rename to one_pair
-    var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    counts[eyesOfDice1-1]++;
-    counts[eyesOfDice2-1]++;
-    counts[eyesOfDice3-1]++;
-    counts[eyesOfDice4-1]++;
-    counts[eyesOfDice5-1]++;
-    var at;
-    for (at = 0; at != 6; at++)
-        if (counts[6-at-1] >= 2)
-            return (6-at)*2;
-    return 0;
 }
 
 Yatzy.two_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
