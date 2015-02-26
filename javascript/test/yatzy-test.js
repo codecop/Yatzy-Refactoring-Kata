@@ -1,7 +1,6 @@
 var assert = require("assert");
 var Yatzy = require("../lib/yatzy");
 
-
 describe('Chance', function() {
     it('scores sum of all dice', function(){
         assert.equal(15, new Yatzy(2, 3, 4, 5, 1).chance());
@@ -66,7 +65,7 @@ describe("Sixes", function() {
 
 describe("One pair", function() {
     it("scores the sum of the highest pair", function() {
-        assert.equal(6, Yatzy.score_pair(3,4,3,5,6));
+        assert.equal(6, new Yatzy(3,4,3,5,6).score_pair());
         assert.equal(10, Yatzy.score_pair(5,3,3,3,5));
         assert.equal(12, Yatzy.score_pair(5,3,6,6,5));
 

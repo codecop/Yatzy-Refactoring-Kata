@@ -1,21 +1,21 @@
-var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) { 
+var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	// TODO call only cunstructor, not functions directly
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
-	
+
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
-  
+
 	function sum(list) {
 		return list.reduce(function(sum, current) {
 			return sum + current;
 		}, 0);
 	}
-	
+
 	function diceWith(eyes) {
-		return dice.filter(function(eyeOfDice) { 
-			return eyeOfDice == eyes; 
+		return dice.filter(function(eyeOfDice) {
+			return eyeOfDice == eyes;
 		});
 	}
-  
+
     this.fours = function()
     {
 		return sum(diceWith(4));
@@ -30,7 +30,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     {
 		return sum(diceWith(6));
     }
-    
+
     this.chance = function() {
 		return sum(dice);
 	}
@@ -45,24 +45,30 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		}
 		return 0;
 	}
-	
-	function eyesWithCountOfAtLeast(count) {
-		var tallies = dice.reduce(function(prev, curr) {
-			prev[curr] = (prev[curr] || 0) + 1;
+
+	function eyesWithCountOfAtLeast(limit) {
+		var countsByEyes = dice.reduce(function(counter, current) {
+			counter[current] = (counter[current] || 0) + 1;
+			return counter;
 		}, {});
 
-		for(var tally in tallies) {
-			if (tallies[tally] > count) {
+        eyes = [];
+		for(var eye in countsByEyes) {
+			if (countsByEyes[eye] >= limit) {
+			    eyes.push(eye);
 			}
 		}
-		// {5: 5}
-		// {1: 2, 4:2, 6: 1}
-	} 
+		return eyes;
+	}
+
+    function max(list) {
+        return Math.max.apply(null, list);
+    }
 
 	this.score_pair = function() {
 		return max(eyesWithCountOfAtLeast(2)) * 2;
 	}
-	
+
 }
 
  // TODO make member function + remove duplication
