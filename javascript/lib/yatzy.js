@@ -69,11 +69,17 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     }
 
 	function eyesWithCountOfAtLeast(limit) {
+	    return eyesWithCountOf(function(count) {
+	        return count >= limit;
+	    });
+	}
+
+	function eyesWithCountOf(filter) {
 		var countsByEyes = countEyes();
 
-        eyes = [];
+        eyes = [ 0 ];
 		for(var eye in countsByEyes) {
-			if (countsByEyes[eye] >= limit) {
+			if (filter(countsByEyes[eye])) {
 			    eyes.push(eye);
 			}
 		}
