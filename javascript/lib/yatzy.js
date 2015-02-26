@@ -16,6 +16,21 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		});
 	}
 
+    this.ones = function()
+    {
+		return sum(diceWith(1));
+    }
+
+    this.twos = function()
+    {
+		return sum(diceWith(2));
+    }
+
+    this.threes = function()
+    {
+		return sum(diceWith(3));
+    }
+
     this.fours = function()
     {
 		return sum(diceWith(4));
@@ -69,40 +84,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return max(eyesWithCountOfAtLeast(2)) * 2;
 	}
 
-}
-
- // TODO make member function + remove duplication
-Yatzy.ones = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-    var sum = 0;
-    if (eyesOfDice1 == 1) sum++;
-    if (eyesOfDice2 == 1) sum++;
-    if (eyesOfDice3 == 1) sum++;
-    if (eyesOfDice4 == 1) sum++;
-    if (eyesOfDice5 == 1)
-        sum++;
-
-    return sum;
-}
-
-Yatzy.twos = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-    var sum = 0;
-    if (eyesOfDice1 == 2) sum += 2;
-    if (eyesOfDice2 == 2) sum += 2;
-    if (eyesOfDice3 == 2) sum += 2;
-    if (eyesOfDice4 == 2) sum += 2;
-    if (eyesOfDice5 == 2) sum += 2;
-    return sum;
-}
-
-Yatzy.threes = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-    var s;
-    s = 0;
-    if (eyesOfDice1 == 3) s += 3;
-    if (eyesOfDice2 == 3) s += 3;
-    if (eyesOfDice3 == 3) s += 3;
-    if (eyesOfDice4 == 3) s += 3;
-    if (eyesOfDice5 == 3) s += 3;
-    return s;
 }
 
 Yatzy.two_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
