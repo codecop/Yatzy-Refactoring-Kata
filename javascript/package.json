@@ -5,6 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "mocha": "~1.17",
+    "istanbul": "~0.3.6",
     "jshint": "~2.6.3"
   }
 }
