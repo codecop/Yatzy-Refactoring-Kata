@@ -86,10 +86,12 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	function eyesWithCountOf(filterCount) {
 		var countsByEyes = countsByEye();
 
-        eyes = [ 0 ];
-		for(var eye in countsByEyes) {
-		    var count = countsByEyes[eye];
+        eyes = [ ];
+		for(var eyeStr in countsByEyes) {
+            // TODO maybe use foreach key/value, see http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
+		    var count = countsByEyes[eyeStr];
 			if (filterCount(count)) {
+			    var eye = parseInt(eyeStr, 10);
 			    eyes.push(eye);
 			}
 		}
@@ -113,25 +115,11 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	}
 
 	this.twoPair = function() {
-        var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-        counts[eyesOfDice1-1]++;
-        counts[eyesOfDice2-1]++
-        counts[eyesOfDice3-1]++
-        counts[eyesOfDice4-1]++;
-        counts[eyesOfDice5-1]++;
-        var n = 0;
-        var score = 0;
-        for (i = 0; i < 6; i += 1) {
-            if (counts[6-i-1] >= 2) {
-                n++;
-                score += (6-i);
-            }
-        }
-        if (n == 2)  {
-            return score * 2;
-        } else {
-            return 0;
-        }
+	    var eyesOfExistingPairs = eyesWithCountOfAtLeast(2);
+	    if (eyesOfExistingPairs.length == 2) {
+	         return sum(eyesOfExistingPairs) * 2;
+	    }
+	    return 0;
      }
 
 }
