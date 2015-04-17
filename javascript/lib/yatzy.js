@@ -1,6 +1,8 @@
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-	// TODO call only constructor, not functions directly
+	// TODO call only constructor, not functions directly, i.e. all methods are instance methods
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
+	// TODO general cleanup, JSHint, ...
+	// TODO sort functions by public/private, private down
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
 
@@ -47,23 +49,28 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     }
 
     this.chance = function() {
+        // TODO dice is far away for just closure?
 		return sum(dice);
 	}
 
-	function isAllDiceWith(eyes) {
+	function allDiceSameLike(eyes) {
 		return diceWith(eyes).length == dice.length;
 	}
 
     this.yatzy = function() {
-		if (isAllDiceWith(dice[0])) {
+		if (allDiceSameLike(firstDice())) {
 			return 50;
 		}
 		return 0;
 	}
 
-    function countEyes() {
-		return dice.reduce(function(counter, current) {
-			counter[current] = (counter[current] || 0) + 1;
+	function firstDice() {
+        return dice[0];
+	}
+
+    function countsByEye() {
+		return dice.reduce(function(counter, eyesOfDice) {
+			counter[eyesOfDice] = (counter[eyesOfDice] || 0) + 1;
 			return counter;
 		}, {});
     }
@@ -74,12 +81,13 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    });
 	}
 
-	function eyesWithCountOf(filter) {
-		var countsByEyes = countEyes();
+	function eyesWithCountOf(filterCount) {
+		var countsByEyes = countsByEye();
 
         eyes = [ 0 ];
 		for(var eye in countsByEyes) {
-			if (filter(countsByEyes[eye])) {
+		    var count = countsByEyes[eye];
+			if (filterCount(count)) {
 			    eyes.push(eye);
 			}
 		}
