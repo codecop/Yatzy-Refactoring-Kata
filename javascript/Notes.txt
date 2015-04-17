@@ -1,5 +1,5 @@
-Retro 17.4.2015
----------------
+Retro 20150417
+--------------
 * idea: do at least one checkin per pomodoro
 * focus to replace temp with query.
 
@@ -13,3 +13,8 @@ Retro 17.4.2015
 * we like small functions
 * worked out well, pair switching worked well
 * Martin says the TeamViewer host should be driver most of the time (interesting point for remote work)
+
+Retro 20150225
+--------------
+* identify code smells, make instance invocation consistent
+* rewrite methods functional style
