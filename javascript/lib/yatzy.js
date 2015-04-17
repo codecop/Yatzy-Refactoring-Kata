@@ -91,6 +91,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
             // TODO maybe use foreach key/value, see http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
 		    var count = countsByEyes[eyeStr];
 			if (filterCount(count)) {
+			    // TODO try use strict and see if it works without cast
 			    var eye = parseInt(eyeStr, 10);
 			    eyes.push(eye);
 			}

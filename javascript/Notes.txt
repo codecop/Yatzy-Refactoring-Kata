@@ -1,0 +1,15 @@
+Retro 17.4.2015
+---------------
+* idea: do at least one checkin per pomodoro
+* focus to replace temp with query.
+
+* took some time to understand code after 2 months
+* Peter changed code alone, maybe should not have done so, only add TODOs
+* Martin likes mocha Watcher, and it runs inside IDEA termninal - great!
+* Martin likes instant feedback of mocha watcher runner
+* Peter is shocked by JS type mangling/chaos ;-)
+* maybe should have zero warnings firsr before doing real work (learning)
+* existing private methods suite us well to implement next rule
+* we like small functions
+* worked out well, pair switching worked well
+* Martin says the TeamViewer host should be driver most of the time (interesting point for remote work)
