@@ -5,6 +5,8 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	// TODO sort functions by public/private, private down
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
+    // TODO maybe have own type/class for this array with internal max, sum, first, this separates rules from array logic
+    // wait for all functions finished
 
 	function sum(list) {
 		return list.reduce(function(sum, current) {
@@ -110,27 +112,28 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return max(eyesWithCountOfAtLeast(3)) * 3;
 	}
 
-}
-
-Yatzy.two_pair = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
-{
-    var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    counts[eyesOfDice1-1]++;
-    counts[eyesOfDice2-1]++
-    counts[eyesOfDice3-1]++
-    counts[eyesOfDice4-1]++;
-    counts[eyesOfDice5-1]++;
-    var n = 0;
-    var score = 0;
-    for (i = 0; i < 6; i += 1)
-        if (counts[6-i-1] >= 2) {
-            n++;
-            score += (6-i);
+	this.twoPair = function() {
+        var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+        counts[eyesOfDice1-1]++;
+        counts[eyesOfDice2-1]++
+        counts[eyesOfDice3-1]++
+        counts[eyesOfDice4-1]++;
+        counts[eyesOfDice5-1]++;
+        var n = 0;
+        var score = 0;
+        for (i = 0; i < 6; i += 1) {
+            if (counts[6-i-1] >= 2) {
+                n++;
+                score += (6-i);
+            }
         }
-    if (n == 2)
-        return score * 2;
-    else
-        return 0;
+        if (n == 2)  {
+            return score * 2;
+        } else {
+            return 0;
+        }
+     }
+
 }
 
 Yatzy.smallStraight = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
