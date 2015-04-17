@@ -1,5 +1,5 @@
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
-	// TODO call only cunstructor, not functions directly
+	// TODO call only constructor, not functions directly
 	// TODO naming of methods with _ and CamelCase => CamelCase is wished
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
