@@ -139,7 +139,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.smallStraight = function() {
          var eyes = eyesWithCountOfExactly(1);
          if ([1,2,3,4,5].equals(eyes)) {
-             return 15;
+             return sum(eyes);
          }
          return 0;
     };
@@ -147,7 +147,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.largeStraight = function() {
          var eyes = eyesWithCountOfExactly(1);
          if ([2,3,4,5,6].equals(eyes)) {
-             return 20;
+             return sum(eyes);
          }
          return 0;
     };
