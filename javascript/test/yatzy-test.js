@@ -18,7 +18,7 @@ describe("Yatzy", function() {
         assert.equal(50, new Yatzy(6,6,6,6,6).yatzy());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(6,6,6,6,3).yatzy());
     });
 });
@@ -30,7 +30,7 @@ describe("Ones", function() {
         assert.equal(4, new Yatzy(1,2,1,1,1).ones());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(6,2,2,4,5).ones());
     });
 });
@@ -71,7 +71,7 @@ describe("Sixes", function() {
         assert.equal(18, new Yatzy(6,5,6,6,5).sixes());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(4,4,4,5,5).sixes());
     });
 });
@@ -115,7 +115,7 @@ describe("Small straight", function() {
         assert.equal(15, new Yatzy(2,3,4,5,1).smallStraight());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(1,2,2,4,5).smallStraight());
         assert.equal(0, new Yatzy(2,3,4,5,6).smallStraight());
     });
@@ -127,7 +127,7 @@ describe("Large straight", function() {
         assert.equal(20, new Yatzy(2,3,4,5,6).largeStraight());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(1,2,2,4,5).largeStraight());
         assert.equal(0, new Yatzy(1,2,3,4,5).largeStraight());
     });
@@ -136,9 +136,15 @@ describe("Large straight", function() {
 describe("Full house", function() {
     it("scores the sum of the full house", function() {
         assert.equal(18, new Yatzy(6,2,2,2,6).fullHouse());
+        assert.equal(22, new Yatzy(6,2,2,6,6).fullHouse());
+        assert.equal(15, new Yatzy(1,1,1,6,6).fullHouse());
     });
 
-    it("scores 0", function() {
+    it("scores 0 otherwise", function() {
         assert.equal(0, new Yatzy(2,3,4,5,6).fullHouse());
+        assert.equal(0, new Yatzy(1,1,2,2,3).fullHouse());
+        assert.equal(0, new Yatzy(1,1,1,2,3).fullHouse());
+        assert.equal(0, new Yatzy(1,1,1,1,2).fullHouse());
+        assert.equal(0, new Yatzy(1,1,1,1,1).fullHouse());
     });
 });
