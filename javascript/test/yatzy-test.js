@@ -107,14 +107,16 @@ describe("Small straight", function() {
         assert.equal(15, new Yatzy(1,2,3,4,5).smallStraight());
         assert.equal(15, new Yatzy(2,3,4,5,1).smallStraight());
         assert.equal(0, new Yatzy(1,2,2,4,5).smallStraight());
+        assert.equal(0, new Yatzy(2,3,4,5,6).smallStraight());
     });
 });
 
 describe("Large straight", function() {
     it("scores 20", function() {
-        assert.equal(20, Yatzy.largeStraight(6,2,3,4,5));
-        assert.equal(20, Yatzy.largeStraight(2,3,4,5,6));
-        assert.equal(0, Yatzy.largeStraight(1,2,2,4,5));
+        assert.equal(20, new Yatzy(6,2,3,4,5).largeStraight());
+        assert.equal(20, new Yatzy(2,3,4,5,6).largeStraight());
+        assert.equal(0, new Yatzy(1,2,2,4,5).largeStraight());
+        assert.equal(0, new Yatzy(1,2,3,4,5).largeStraight());
     });
 });
 
