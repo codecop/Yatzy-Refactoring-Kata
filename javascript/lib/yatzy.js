@@ -153,10 +153,10 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 
     this.fullHouse = function() {
-        var eyes2 = eyesWithCountOfExactly(2);
-        var eyes3 = eyesWithCountOfExactly(3);
-        if (eyes2.length == 1 && eyes3.length == 1) {
-            return eyes2[0] * 2 + eyes3[0] * 3;
+        var pairs = eyesWithCountOfExactly(2);
+        var threes = eyesWithCountOfExactly(3);
+        if (pairs.length === 1 && threes.length === 1) {
+            return pairs[0] * 2 + threes[0] * 3;
         }
         return 0;
     };
