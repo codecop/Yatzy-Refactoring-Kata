@@ -1,6 +1,19 @@
+Retro 20150724
+--------------
+* again 3 months passed - this is an exercise to practice "get into code again" ;-)
+* we got into it fast, we are almost done
+* zero warnings first
+* good, we committed frequently
+* we did not make any breaks (forgot the timer)
+* we learned that files need to be required if we want to test them, not assert's fault
+* we learned that IDEA uses fancy color codes in navigator
+
+* will we be able to read it in two months?
+* plan for next time is to change design, create object for Dices, that is not Yatzi specific
+
 Retro 20150417
 --------------
-* idea: do at least one checkin per pomodoro
+* idea: do at least one check-in per Pomodoro
 * focus to replace temp with query.
 
 * took some time to understand code after 2 months
@@ -8,7 +21,7 @@ Retro 20150417
 * Martin likes mocha Watcher, and it runs inside IDEA termninal - great!
 * Martin likes instant feedback of mocha watcher runner
 * Peter is shocked by JS type mangling/chaos ;-)
-* maybe should have zero warnings firsr before doing real work (learning)
+* maybe should have zero warnings first before doing real work (learning)
 * existing private methods suite us well to implement next rule
 * we like small functions
 * worked out well, pair switching worked well
@@ -18,3 +31,10 @@ Retro 20150225
 --------------
 * identify code smells, make instance invocation consistent
 * rewrite methods functional style
+
+Constraints
+-----------
+* rewrite methods functional style
+* focus to replace temp with query
+* small functions
+* maybe zero warnings first (done)
