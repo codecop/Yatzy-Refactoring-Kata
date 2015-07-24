@@ -87,7 +87,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    });
 	}
 
-    // TODO rename eyesWithNumberOfOccurancesFor
+    // TODO rename eyesWithNumberOfOccurrencesFor
 	function eyesWithCountOf(filterCount) {
 		var countsByEyes = countsByEye();
 
@@ -97,7 +97,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
                 // TODO maybe use foreach key/value, see http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
                 var count = countsByEyes[eyeStr];
                 if (filterCount(count)) {
-                    // TODO try use strict and see if it works without cast
                     var eye = parseInt(eyeStr, 10);
                     eyes.push(eye);
                 }
@@ -139,7 +138,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.smallStraight = function() {
         var eyes = eyesWithCountOfExactly(1);
         if ([1,2,3,4,5].equals(eyes)) {
-            return sum(eyes);
+            return sum(dice);
         }
         return 0;
     };
@@ -147,7 +146,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.largeStraight = function() {
         var eyes = eyesWithCountOfExactly(1);
         if ([2,3,4,5,6].equals(eyes)) {
-            return sum(eyes);
+            return sum(dice);
         }
         return 0;
     };
@@ -156,7 +155,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
         var pairs = eyesWithCountOfExactly(2);
         var threes = eyesWithCountOfExactly(3);
         if (pairs.length === 1 && threes.length === 1) {
-            return pairs[0] * 2 + threes[0] * 3;
+            return sum(dice);
         }
         return 0;
     };
