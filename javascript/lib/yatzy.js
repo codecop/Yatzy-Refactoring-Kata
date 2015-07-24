@@ -144,23 +144,12 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
          return 0;
     };
 
-    this.largeStraight = function()
-    {
-        var tallies;
-        tallies = [0, 0, 0, 0,0,0,0,0];
-        tallies[eyesOfDice1-1] += 1;
-        tallies[eyesOfDice2-1] += 1;
-        tallies[eyesOfDice3-1] += 1;
-        tallies[eyesOfDice4-1] += 1;
-        tallies[eyesOfDice5-1] += 1;
-        if (tallies[1] === 1 &&
-            tallies[2] === 1 &&
-            tallies[3] === 1 &&
-            tallies[4] === 1 &&
-            tallies[5] === 1) {
-                return 20;
-            }
-        return 0;
+    this.largeStraight = function() {
+         var eyes = eyesWithCountOfExactly(1);
+         if ([2,3,4,5,6].equals(eyes)) {
+             return 20;
+         }
+         return 0;
     };
 };
 
