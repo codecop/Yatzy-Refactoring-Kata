@@ -1,4 +1,5 @@
-/* global module */ // Node.JS
+/* global module, require */ // Node.JS
+require("./Array");
 
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
@@ -86,6 +87,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    });
 	}
 
+    // TODO rename eyesWithNumberOfOccurancesFor
 	function eyesWithCountOf(filterCount) {
 		var countsByEyes = countsByEye();
 
@@ -128,25 +130,19 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    return 0;
      };
 
-    this.smallStraight = function()
-     {
-         "use strict";
-         var tallies;
-         tallies = [0, 0, 0, 0, 0, 0, 0];
-         tallies[eyesOfDice1-1] += 1;
-         tallies[eyesOfDice2-1] += 1;
-         tallies[eyesOfDice3-1] += 1;
-         tallies[eyesOfDice4-1] += 1;
-         tallies[eyesOfDice5-1] += 1;
-         if (tallies[0] === 1 &&
-             tallies[1] === 1 &&
-             tallies[2] === 1 &&
-             tallies[3] === 1 &&
-             tallies[4] === 1) {
-                 return 15;
-             }
+	function eyesWithCountOfExactly(limit) {
+	    return eyesWithCountOf(function(count) {
+	        return count === limit;
+	    });
+	}
+
+    this.smallStraight = function() {
+         var eyes = eyesWithCountOfExactly(1);
+         if ([1,2,3,4,5].equals(eyes)) {
+             return 15;
+         }
          return 0;
-     };
+    };
 };
 
 Yatzy.largeStraight = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
