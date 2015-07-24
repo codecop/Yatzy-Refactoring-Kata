@@ -104,9 +104,9 @@ describe("Four of a kind", function() {
 
 describe("Small straight", function() {
     it("scores 15", function() {
-        assert.equal(15, Yatzy.smallStraight(1,2,3,4,5));
-        assert.equal(15, Yatzy.smallStraight(2,3,4,5,1));
-        assert.equal(0, Yatzy.smallStraight(1,2,2,4,5));
+        assert.equal(15, new Yatzy(1,2,3,4,5).smallStraight());
+        assert.equal(15, new Yatzy(2,3,4,5,1).smallStraight());
+        assert.equal(0, new Yatzy(1,2,2,4,5).smallStraight());
     });
 });
 
