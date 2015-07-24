@@ -137,55 +137,28 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	}
 
     this.smallStraight = function() {
-         var eyes = eyesWithCountOfExactly(1);
-         if ([1,2,3,4,5].equals(eyes)) {
-             return sum(eyes);
-         }
-         return 0;
+        var eyes = eyesWithCountOfExactly(1);
+        if ([1,2,3,4,5].equals(eyes)) {
+            return sum(eyes);
+        }
+        return 0;
     };
 
     this.largeStraight = function() {
-         var eyes = eyesWithCountOfExactly(1);
-         if ([2,3,4,5,6].equals(eyes)) {
-             return sum(eyes);
-         }
-         return 0;
+        var eyes = eyesWithCountOfExactly(1);
+        if ([2,3,4,5,6].equals(eyes)) {
+            return sum(eyes);
+        }
+        return 0;
     };
 
     this.fullHouse = function() {
-        var tallies;
-        var  _2 = false;
-        var i;
-        var _2_at = 0;
-        var _3 = false;
-        var _3_at = 0;
-
-        tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-        tallies[eyesOfDice1-1] += 1;
-        tallies[eyesOfDice2-1] += 1;
-        tallies[eyesOfDice3-1] += 1;
-        tallies[eyesOfDice4-1] += 1;
-        tallies[eyesOfDice5-1] += 1;
-
-        for (i = 0; i !== 6; i += 1) {
-            if (tallies[i] === 2) {
-                _2 = true;
-                _2_at = i+1;
-            }
+        var eyes2 = eyesWithCountOfExactly(2);
+        var eyes3 = eyesWithCountOfExactly(3);
+        if (eyes2.length == 1 && eyes3.length == 1) {
+            return eyes2[0] * 2 + eyes3[0] * 3;
         }
-
-        for (i = 0; i !== 6; i += 1) {
-            if (tallies[i] === 3) {
-                _3 = true;
-                _3_at = i+1;
-            }
-        }
-
-        if (_2 && _3) {
-            return _2_at * 2 + _3_at * 3;
-        } else {
-            return 0;
-        }
+        return 0;
     };
 };
 
