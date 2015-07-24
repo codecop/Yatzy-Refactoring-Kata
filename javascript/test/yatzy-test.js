@@ -1,8 +1,12 @@
+/* global require */ // Node.js
+/* global describe, it, before, beforeEach, after, afterEach */ // Mocha
+/* jshint strict: false */
+
 var assert = require("assert");
 var Yatzy = require("../lib/yatzy");
 
-describe('Chance', function() {
-    it('scores sum of all dice', function(){
+describe("Chance", function() {
+    it("scores sum of all dice", function(){
         assert.equal(15, new Yatzy(2, 3, 4, 5, 1).chance());
         assert.equal(16, new Yatzy(3, 3, 4, 5, 1).chance());
     });
