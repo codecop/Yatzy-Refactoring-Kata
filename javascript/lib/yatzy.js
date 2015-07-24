@@ -3,14 +3,12 @@ require("./Array");
 
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
-	// TODO call only constructor, not functions directly, i.e. all methods are instance methods
-	// TODO naming of methods with _ and CamelCase => CamelCase is wished
-	// TODO general cleanup, ...
-	// TODO sort functions by public/private, private down
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
-    // TODO maybe have own type/class for this array with internal max, sum, first, this separates rules from array logic
-    // wait for all functions finished
+    // TODO maybe have own type/class "Dices" for this array
+    // with internal max, sum, first, this separates rules from array logic
+
+	// TODO sort functions by public/private, private down - after dices has been pulled out
 
 	function sum(list) {
 		return list.reduce(function(sum, current) {
@@ -55,7 +53,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 
     this.chance = function() {
-        // TODO dice is far away for just closure?
 		return sum(dice);
 	};
 
@@ -87,14 +84,13 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    });
 	}
 
-    // TODO rename eyesWithNumberOfOccurrencesFor
+    // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
 	function eyesWithCountOf(filterCount) {
 		var countsByEyes = countsByEye();
 
         var eyes = [ ];
 		for(var eyeStr in countsByEyes) {
 		    if(countsByEyes.hasOwnProperty(eyeStr)) {
-                // TODO maybe use foreach key/value, see http://bjorn.tipling.com/maps-sets-and-iterators-in-javascript
                 var count = countsByEyes[eyeStr];
                 if (filterCount(count)) {
                     var eye = parseInt(eyeStr, 10);
