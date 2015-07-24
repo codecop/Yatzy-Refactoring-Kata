@@ -151,44 +151,42 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
          }
          return 0;
     };
-};
 
-Yatzy.fullHouse = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5)
-{
-    "use strict";
-    var tallies;
-    var  _2 = false;
-    var i;
-    var _2_at = 0;
-    var _3 = false;
-    var _3_at = 0;
+    this.fullHouse = function() {
+        var tallies;
+        var  _2 = false;
+        var i;
+        var _2_at = 0;
+        var _3 = false;
+        var _3_at = 0;
 
-    tallies = [0, 0, 0, 0, 0, 0, 0, 0];
-    tallies[eyesOfDice1-1] += 1;
-    tallies[eyesOfDice2-1] += 1;
-    tallies[eyesOfDice3-1] += 1;
-    tallies[eyesOfDice4-1] += 1;
-    tallies[eyesOfDice5-1] += 1;
+        tallies = [0, 0, 0, 0, 0, 0, 0, 0];
+        tallies[eyesOfDice1-1] += 1;
+        tallies[eyesOfDice2-1] += 1;
+        tallies[eyesOfDice3-1] += 1;
+        tallies[eyesOfDice4-1] += 1;
+        tallies[eyesOfDice5-1] += 1;
 
-    for (i = 0; i !== 6; i += 1) {
-        if (tallies[i] === 2) {
-            _2 = true;
-            _2_at = i+1;
+        for (i = 0; i !== 6; i += 1) {
+            if (tallies[i] === 2) {
+                _2 = true;
+                _2_at = i+1;
+            }
         }
-    }
 
-    for (i = 0; i !== 6; i += 1) {
-        if (tallies[i] === 3) {
-            _3 = true;
-            _3_at = i+1;
+        for (i = 0; i !== 6; i += 1) {
+            if (tallies[i] === 3) {
+                _3 = true;
+                _3_at = i+1;
+            }
         }
-    }
 
-    if (_2 && _3) {
-        return _2_at * 2 + _3_at * 3;
-    } else {
-        return 0;
-    }
+        if (_2 && _3) {
+            return _2_at * 2 + _3_at * 3;
+        } else {
+            return 0;
+        }
+    };
 };
 
 module.exports = Yatzy;
