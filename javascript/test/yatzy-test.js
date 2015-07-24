@@ -16,6 +16,9 @@ describe("Yatzy", function() {
     it("scores 50", function() {
         assert.equal(50, new Yatzy(4,4,4,4,4).yatzy());
         assert.equal(50, new Yatzy(6,6,6,6,6).yatzy());
+    });
+
+    it("scores 0", function() {
         assert.equal(0, new Yatzy(6,6,6,6,3).yatzy());
     });
 });
@@ -24,8 +27,11 @@ describe("Ones", function() {
     it("score the sum of 1s", function() {
         assert.equal(1, new Yatzy(1,2,3,4,5).ones());
         assert.equal(2, new Yatzy(1,2,1,4,5).ones());
-        assert.equal(0, new Yatzy(6,2,2,4,5).ones());
         assert.equal(4, new Yatzy(1,2,1,1,1).ones());
+    });
+
+    it("scores 0", function() {
+        assert.equal(0, new Yatzy(6,2,2,4,5).ones());
     });
 });
 
@@ -61,9 +67,12 @@ describe("Fives", function() {
 
 describe("Sixes", function() {
     it("score the sum of sixes", function() {
-        assert.equal(0, new Yatzy(4,4,4,5,5).sixes());
         assert.equal(6, new Yatzy(4,4,6,5,5).sixes());
         assert.equal(18, new Yatzy(6,5,6,6,5).sixes());
+    });
+
+    it("scores 0", function() {
+        assert.equal(0, new Yatzy(4,4,4,5,5).sixes());
     });
 });
 
@@ -72,8 +81,6 @@ describe("One pair", function() {
         assert.equal(6, new Yatzy(3,4,3,5,6).onePair());
         assert.equal(10, new Yatzy(5,3,3,3,5).onePair());
         assert.equal(12, new Yatzy(5,3,6,6,5).onePair());
-
-		// test explicitly to take larger pair
         assert.equal(12, new Yatzy(3,3,6,6,5).onePair());
         assert.equal(12, new Yatzy(6,6,1,3,3).onePair());
     });
@@ -106,6 +113,9 @@ describe("Small straight", function() {
     it("scores 15", function() {
         assert.equal(15, new Yatzy(1,2,3,4,5).smallStraight());
         assert.equal(15, new Yatzy(2,3,4,5,1).smallStraight());
+    });
+
+    it("scores 0", function() {
         assert.equal(0, new Yatzy(1,2,2,4,5).smallStraight());
         assert.equal(0, new Yatzy(2,3,4,5,6).smallStraight());
     });
@@ -115,6 +125,9 @@ describe("Large straight", function() {
     it("scores 20", function() {
         assert.equal(20, new Yatzy(6,2,3,4,5).largeStraight());
         assert.equal(20, new Yatzy(2,3,4,5,6).largeStraight());
+    });
+
+    it("scores 0", function() {
         assert.equal(0, new Yatzy(1,2,2,4,5).largeStraight());
         assert.equal(0, new Yatzy(1,2,3,4,5).largeStraight());
     });
@@ -123,6 +136,9 @@ describe("Large straight", function() {
 describe("Full house", function() {
     it("scores the sum of the full house", function() {
         assert.equal(18, Yatzy.fullHouse(6,2,2,2,6));
+    });
+
+    it("scores 0", function() {
         assert.equal(0, Yatzy.fullHouse(2,3,4,5,6));
     });
 });
