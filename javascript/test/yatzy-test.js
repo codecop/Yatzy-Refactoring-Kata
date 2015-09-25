@@ -3,7 +3,16 @@
 /* jshint strict: false */
 
 var assert = require("assert");
-var Yatzy = require("../lib/yatzy");
+var Yatzy = require("../lib/yatzy").yatzy;
+var Dices = require("../lib/yatzy").dices;
+
+describe("Dices", function() {
+    it("dices with", function() {
+        var dices = new Dices(1, 2, 3, 4, 5);
+        var actual = dices.diceWithX(1);
+        assert.equal(typeof actual.sum, 'function');
+    });
+});
 
 describe("Chance", function() {
     it("scores sum of all dice", function(){

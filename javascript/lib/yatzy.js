@@ -24,6 +24,15 @@ var Dices = function() {
 			return eyeOfDice === eyes;
 		});
 	};
+	// TODO replace diceWith with this and rename back
+	this.diceWithX = function(eyes) {
+		var filteredEyes = dice.filter(function(eyeOfDice) {
+			return eyeOfDice === eyes;
+		});
+		var x = new Dices();
+		Dices.apply(x, filteredEyes); /* new */
+		return x;
+	};
 
 	this.allDiceSameLike = function(eyes) {
 		return this.diceWith(eyes).length === dice.length;
@@ -93,7 +102,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
     this.ones = function()
     {
-		return sum(dice.diceWith(1));
+		return dice.diceWithX(1).sum();
     };
 
     this.twos = function()
@@ -182,4 +191,5 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 };
 
-module.exports = Yatzy;
+// TODO think if we want to expose Dices as public? if yes move to its own file, if not remove from here
+module.exports = {yatzy: Yatzy, dices: Dices};
