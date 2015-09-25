@@ -1,3 +1,20 @@
+Retro 20150925
+--------------
+* Cool to use dynamic arguments and dynamic construction.
+* We see more of magic JS today, all the basic logic was finished.
+* only 2 months passed, no problem to start again.
+* Good to have a plan for next time at end of retrospective.
+* Cool to do some refactoring step by step. Nice to see green.
+* Baby steps worked out fine.
+* Mocha error messages are difficult to read, esp. in small terminal.
+* REPL would have been nice for prototyping JS specific things like arguments.
+
+* Plan for next time: Goal; is to
+  return Dices instead of [] so we can call ..sum and ..max instead of sum(..)
+* Need to cleanup dynamic Dices creation, use diceWith in all places, continue replacement
+* Same for max().
+* try next time the node REPL.
+
 Retro 20150724
 --------------
 * again 3 months passed - this is an exercise to practice "get into code again" ;-)
