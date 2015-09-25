@@ -1,39 +1,50 @@
 /* global module, require */ // Node.JS
 require("./Array");
 
-var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
+var Dices = function() {
 	"use strict";
 
+	// TODO check if all methods need to be public
+
+	function toArray(obj) {
+		var array = [];
+		for (var key in obj) {
+			if (obj.hasOwnProperty(key)) {
+				array.push(obj[key]);
+			}
+		}
+        return array;
+	}
+
+    var dice = toArray(arguments);
+
 	// TODO rename because dices.diceWith is redundant
-
-    var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
-
 	this.diceWith = function(eyes) {
 		return dice.filter(function(eyeOfDice) {
 			return eyeOfDice === eyes;
 		});
-	}
+	};
 
 	this.allDiceSameLike = function(eyes) {
 		return this.diceWith(eyes).length === dice.length;
-	}
+	};
 
 	this.firstDice = function() {
         return dice[0];
-	}
+	};
 
     this.countsByEye = function() {
 		return dice.reduce(function(counter, eyesOfDice) {
 			counter[eyesOfDice] = (counter[eyesOfDice] || 0) + 1;
 			return counter;
 		}, {});
-    }
+    };
 
 	this.eyesWithCountOfAtLeast = function(limit) {
 	    return this.eyesWithCountOf(function(count) {
 	        return count >= limit;
 	    });
-	}
+	};
 
     // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
 	this.eyesWithCountOf = function(filterCount) {
@@ -50,19 +61,19 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 			}
 		}
 		return eyes;
-	}
+	};
 
 	this.eyesWithCountOfExactly = function(limit) {
 	    return this.eyesWithCountOf(function(count) {
 	        return count === limit;
 	    });
-	}
+	};
 
 	this.sum = function() {
 		return dice.reduce(function(sum, current) {
 			return sum + current;
 		}, 0);
-	}
+	};
 
 };
 
