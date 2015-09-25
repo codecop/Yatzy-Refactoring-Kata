@@ -52,6 +52,12 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return eyes;
 	}
 
+	this.eyesWithCountOfExactly = function(limit) {
+	    return this.eyesWithCountOf(function(count) {
+	        return count === limit;
+	    });
+	}
+
 }
 
 
@@ -136,14 +142,8 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    return 0;
      };
 
-	function eyesWithCountOfExactly(limit) {
-	    return xxx.eyesWithCountOf(function(count) {
-	        return count === limit;
-	    });
-	}
-
     this.smallStraight = function() {
-        var eyes = eyesWithCountOfExactly(1);
+        var eyes = xxx.eyesWithCountOfExactly(1);
         if ([1,2,3,4,5].equals(eyes)) {
             return sum(dice);
         }
@@ -151,7 +151,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 
     this.largeStraight = function() {
-        var eyes = eyesWithCountOfExactly(1);
+        var eyes = xxx.eyesWithCountOfExactly(1);
         if ([2,3,4,5,6].equals(eyes)) {
             return sum(dice);
         }
@@ -159,8 +159,8 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 
     this.fullHouse = function() {
-        var pairs = eyesWithCountOfExactly(2);
-        var threes = eyesWithCountOfExactly(3);
+        var pairs = xxx.eyesWithCountOfExactly(2);
+        var threes = xxx.eyesWithCountOfExactly(3);
         if (pairs.length === 1 && threes.length === 1) {
             return sum(dice);
         }
