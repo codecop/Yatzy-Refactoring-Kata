@@ -4,12 +4,18 @@ require("./Array");
 var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
 
+	// TODO rename because dices.diceWith is redundant
+
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
 
 	this.diceWith = function(eyes) {
 		return dice.filter(function(eyeOfDice) {
 			return eyeOfDice === eyes;
 		});
+	}
+
+	this.allDiceSameLike = function(eyes) {
+		return this.diceWith(eyes).length === dice.length;
 	}
 
 	this.firstDice = function() {
@@ -69,12 +75,8 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return sum(dice);
 	};
 
-	function allDiceSameLike(eyes) {
-		return xxx.diceWith(eyes).length === dice.length;
-	}
-
     this.yatzy = function() {
-		if (allDiceSameLike(xxx.firstDice())) {
+		if (xxx.allDiceSameLike(xxx.firstDice())) {
 			return 50;
 		}
 		return 0;
