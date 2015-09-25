@@ -29,6 +29,23 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		}, {});
     }
 
+    // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
+	this.eyesWithCountOf = function(filterCount) {
+		var countsByEyes = this.countsByEye();
+
+		var eyes = [ ];
+		for(var eyeStr in countsByEyes) {
+			if(countsByEyes.hasOwnProperty(eyeStr)) {
+				var count = countsByEyes[eyeStr];
+				if (filterCount(count)) {
+					var eye = parseInt(eyeStr, 10);
+					eyes.push(eye);
+				}
+			}
+		}
+		return eyes;
+	}
+
 }
 
 
@@ -90,26 +107,9 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	};
 
 	function eyesWithCountOfAtLeast(limit) {
-	    return eyesWithCountOf(function(count) {
+	    return xxx.eyesWithCountOf(function(count) {
 	        return count >= limit;
 	    });
-	}
-
-    // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
-	function eyesWithCountOf(filterCount) {
-		var countsByEyes = xxx.countsByEye();
-
-        var eyes = [ ];
-		for(var eyeStr in countsByEyes) {
-		    if(countsByEyes.hasOwnProperty(eyeStr)) {
-                var count = countsByEyes[eyeStr];
-                if (filterCount(count)) {
-                    var eye = parseInt(eyeStr, 10);
-                    eyes.push(eye);
-                }
-		    }
-		}
-		return eyes;
 	}
 
     function max(list) {
@@ -137,7 +137,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
      };
 
 	function eyesWithCountOfExactly(limit) {
-	    return eyesWithCountOf(function(count) {
+	    return xxx.eyesWithCountOf(function(count) {
 	        return count === limit;
 	    });
 	}
