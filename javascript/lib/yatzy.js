@@ -58,6 +58,12 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	    });
 	}
 
+	this.sum = function() {
+		return dice.reduce(function(sum, current) {
+			return sum + current;
+		}, 0);
+	}
+
 }
 
 
@@ -66,7 +72,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
     var xxx = new Dices(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5);
-    // TODO maybe have own type/class "Dices" for this array
     // with internal max, sum, first, this separates rules from array logic
 
 	// TODO sort functions by public/private, private down - after dices has been pulled out
@@ -108,7 +113,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     };
 
     this.chance = function() {
-		return sum(dice);
+		return xxx.sum();
 	};
 
     this.yatzy = function() {
@@ -145,7 +150,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.smallStraight = function() {
         var eyes = xxx.eyesWithCountOfExactly(1);
         if ([1,2,3,4,5].equals(eyes)) {
-            return sum(dice);
+            return xxx.sum();
         }
         return 0;
     };
@@ -153,7 +158,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     this.largeStraight = function() {
         var eyes = xxx.eyesWithCountOfExactly(1);
         if ([2,3,4,5,6].equals(eyes)) {
-            return sum(dice);
+            return xxx.sum();
         }
         return 0;
     };
@@ -162,7 +167,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
         var pairs = xxx.eyesWithCountOfExactly(2);
         var threes = xxx.eyesWithCountOfExactly(3);
         if (pairs.length === 1 && threes.length === 1) {
-            return sum(dice);
+            return xxx.sum();
         }
         return 0;
     };
