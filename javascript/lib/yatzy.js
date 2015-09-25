@@ -12,6 +12,10 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		});
 	}
 
+	this.firstDice = function() {
+        return dice[0];
+	}
+
 }
 
 
@@ -70,15 +74,11 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	}
 
     this.yatzy = function() {
-		if (allDiceSameLike(firstDice())) {
+		if (allDiceSameLike(xxx.firstDice())) {
 			return 50;
 		}
 		return 0;
 	};
-
-	function firstDice() {
-        return dice[0];
-	}
 
     function countsByEye() {
 		return dice.reduce(function(counter, eyesOfDice) {
