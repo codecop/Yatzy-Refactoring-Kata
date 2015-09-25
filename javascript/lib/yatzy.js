@@ -22,6 +22,13 @@ var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
         return dice[0];
 	}
 
+    this.countsByEye = function() {
+		return dice.reduce(function(counter, eyesOfDice) {
+			counter[eyesOfDice] = (counter[eyesOfDice] || 0) + 1;
+			return counter;
+		}, {});
+    }
+
 }
 
 
@@ -82,13 +89,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		return 0;
 	};
 
-    function countsByEye() {
-		return dice.reduce(function(counter, eyesOfDice) {
-			counter[eyesOfDice] = (counter[eyesOfDice] || 0) + 1;
-			return counter;
-		}, {});
-    }
-
 	function eyesWithCountOfAtLeast(limit) {
 	    return eyesWithCountOf(function(count) {
 	        return count >= limit;
@@ -97,7 +97,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
     // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
 	function eyesWithCountOf(filterCount) {
-		var countsByEyes = countsByEye();
+		var countsByEyes = xxx.countsByEye();
 
         var eyes = [ ];
 		for(var eyeStr in countsByEyes) {
