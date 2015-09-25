@@ -10,7 +10,7 @@ describe("Dices", function() {
     it("dices with", function() {
         var dices = new Dices(1, 2, 3, 4, 5);
         var actual = dices.diceWithX(1);
-        assert.equal(typeof actual.sum, 'function');
+        assert.equal(typeof actual.sum, "function");
     });
 });
 
