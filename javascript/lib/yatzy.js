@@ -1,10 +1,25 @@
 /* global module, require */ // Node.JS
 require("./Array");
 
+var Dices = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
+	"use strict";
+
+    var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
+
+	this.diceWith = function(eyes) {
+		return dice.filter(function(eyeOfDice) {
+			return eyeOfDice === eyes;
+		});
+	}
+
+}
+
+
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
 
     var dice = [eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5];
+    var xxx = new Dices(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5);
     // TODO maybe have own type/class "Dices" for this array
     // with internal max, sum, first, this separates rules from array logic
 
@@ -16,40 +31,34 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 		}, 0);
 	}
 
-	function diceWith(eyes) {
-		return dice.filter(function(eyeOfDice) {
-			return eyeOfDice === eyes;
-		});
-	}
-
     this.ones = function()
     {
-		return sum(diceWith(1));
+		return sum(xxx.diceWith(1));
     };
 
     this.twos = function()
     {
-		return sum(diceWith(2));
+		return sum(xxx.diceWith(2));
     };
 
     this.threes = function()
     {
-		return sum(diceWith(3));
+		return sum(xxx.diceWith(3));
     };
 
     this.fours = function()
     {
-		return sum(diceWith(4));
+		return sum(xxx.diceWith(4));
     };
 
     this.fives = function()
     {
-		return sum(diceWith(5));
+		return sum(xxx.diceWith(5));
     };
 
     this.sixes = function()
     {
-		return sum(diceWith(6));
+		return sum(xxx.diceWith(6));
     };
 
     this.chance = function() {
@@ -57,7 +66,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	};
 
 	function allDiceSameLike(eyes) {
-		return diceWith(eyes).length === dice.length;
+		return xxx.diceWith(eyes).length === dice.length;
 	}
 
     this.yatzy = function() {
