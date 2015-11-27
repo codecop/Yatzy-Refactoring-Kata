@@ -103,27 +103,27 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
     this.twos = function()
     {
-		return sum(dice.diceWith(2));
+		return dice.diceWithX(2).sum();
     };
 
     this.threes = function()
     {
-		return sum(dice.diceWith(3));
+		return dice.diceWithX(3).sum();
     };
 
     this.fours = function()
     {
-		return sum(dice.diceWith(4));
+		return dice.diceWithX(4).sum();
     };
 
     this.fives = function()
     {
-		return sum(dice.diceWith(5));
+		return dice.diceWithX(5).sum();
     };
 
     this.sixes = function()
     {
-		return sum(dice.diceWith(6));
+		return dice.diceWithX(6).sum();
     };
 
     this.chance = function() {
