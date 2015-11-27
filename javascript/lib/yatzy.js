@@ -7,12 +7,6 @@ var Dices = function(dice) {
 	// TODO check if all methods need to be public
 
 	// TODO rename because dices.diceWith is redundant
-	this.diceWith = function(eyes) {
-		return dice.filter(function(eyeOfDice) {
-			return eyeOfDice === eyes;
-		});
-	};
-	// TODO replace diceWith(.) with diceWithX(.) and rename back
 	this.diceWithX = function(eyes) {
 		var filteredEyes = dice.filter(function(eyeOfDice) {
 			return eyeOfDice === eyes;
@@ -21,7 +15,13 @@ var Dices = function(dice) {
 	};
 
 	this.allDiceSameLike = function(eyes) {
-		return this.diceWith(eyes).length === dice.length;
+        function diceWith(eyes) {
+            return dice.filter(function(eyeOfDice) {
+                return eyeOfDice === eyes;
+            });
+        };
+
+		return diceWith(eyes).length === dice.length;
 	};
 
 	this.firstDice = function() {
@@ -90,12 +90,6 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
 	// TODO sort functions by public/private, private down - after dices has been pulled out
 
-	function sum(list) {
-		return list.reduce(function(sum, current) {
-			return sum + current;
-		}, 0);
-	}
-
     this.ones = function()
      {
 		return dice.diceWithX(1).sum();
@@ -154,6 +148,13 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	};
 
 	this.twoPair = function() {
+
+        function sum(list) {
+            return list.reduce(function(sum, current) {
+                return sum + current;
+            }, 0);
+        }
+
 	    var eyesOfExistingPairs = dice.eyesWithCountOfAtLeast(2);
 	    if (eyesOfExistingPairs.length === 2) {
 	         return sum(eyesOfExistingPairs) * 2;
