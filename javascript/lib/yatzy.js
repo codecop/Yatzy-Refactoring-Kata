@@ -42,6 +42,13 @@ var Dices = function(dice) {
 	    });
 	};
 
+	this.eyesWithCountOfAtLeastX = function(limit) {
+	    var eyes = this.eyesWithCountOf(function(count) {
+	        return count >= limit;
+	    });
+	    return new Dices(eyes);
+	};
+
     // TODO maybe rename eyesWithNumberOfOccurrencesFor - count is not clear
 	this.eyesWithCountOf = function(filterCount) {
 		var countsByEyes = this.countsByEye();
@@ -70,6 +77,10 @@ var Dices = function(dice) {
 			return sum + current;
 		}, 0);
 	};
+
+    this.max = function() {
+        return Math.max.apply(null, dice);
+    };
 
 };
 
@@ -131,15 +142,15 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
     }
 
 	this.onePair = function() {
-		return max(dice.eyesWithCountOfAtLeast(2)) * 2;
+		return dice.eyesWithCountOfAtLeastX(2).max() * 2;
 	};
 
 	this.fourOfAKind = function() {
-		return max(dice.eyesWithCountOfAtLeast(4)) * 4;
+		return dice.eyesWithCountOfAtLeastX(4).max() * 4;
 	};
 
 	this.threeOfAKind = function() {
-		return max(dice.eyesWithCountOfAtLeast(3)) * 3;
+		return dice.eyesWithCountOfAtLeastX(3).max() * 3;
 	};
 
 	this.twoPair = function() {
