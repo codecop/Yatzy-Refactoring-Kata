@@ -2,12 +2,23 @@ Retro 20151127
 --------------
 * only two months this time
 * short session only 1h work time
-* Teamviewer does not work for Martin any more, need another tool
+* TeamViewer does not work for Martin any more, need another tool
   use only screen sharing today, switch presenter between sessions
-* Do not want to patch general objects th
+* Rule: Do not want to patch general objects that are used in all application, e.g. Array
+* we worked through the TODOs as planned
+* design of Dices was improved, we removed special case of arguments conversion
+  the special case argumentsToArray is too special for helper Dices.
+* Peter learned F7 shortcut again (next diff)
+* we are in sync with thoughts, so only viewing was no problem for Martin
+* Martin is ok with only watching and getting timely feedback.
 
 * Plan for next time: Goal is to
-  TODO plan for next session:
+  remove all low level/primitives from Yatzy, Dice support all needed functions.
+  We want to see the pure business rules in Yatzi.
+* next steps
+  - eyesWithCountOfAtLeastX use in remaining place, (implement length, drop sum/max from Yatzi)
+  - move equals back into Dices
+  - minor cleanups, we should be done then.
 
 Retro 20150925
 --------------
@@ -24,8 +35,7 @@ Retro 20150925
   return Dices instead of [] so we can call ..sum and ..max instead of sum(..)
 * Need to cleanup dynamic Dices creation, use diceWith in all places, continue replacement
 * Same for max().
-* try next time the node REPL.
-
+* try next time the node REPL for JS investigation.
 Retro 20150724
 --------------
 * again 3 months passed - this is an exercise to practice "get into code again" ;-)
