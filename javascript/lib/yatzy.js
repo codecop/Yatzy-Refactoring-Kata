@@ -1,22 +1,20 @@
 /* global module, require */ // Node.JS
 require("./Array");
 
-var Dices = function() {
+function argumentsToArray(obj) {
+    var array = [];
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+            array.push(obj[key]);
+        }
+    }
+    return array;
+}
+
+var Dices = function(dice) {
 	"use strict";
 
 	// TODO check if all methods need to be public
-
-	function toArray(obj) {
-		var array = [];
-		for (var key in obj) {
-			if (obj.hasOwnProperty(key)) {
-				array.push(obj[key]);
-			}
-		}
-        return array;
-	}
-
-    var dice = toArray(arguments);
 
 	// TODO rename because dices.diceWith is redundant
 	this.diceWith = function(eyes) {
@@ -24,14 +22,12 @@ var Dices = function() {
 			return eyeOfDice === eyes;
 		});
 	};
-	// TODO replace diceWith with this and rename back
+	// TODO replace diceWith(.) with diceWithX(.) and rename back
 	this.diceWithX = function(eyes) {
 		var filteredEyes = dice.filter(function(eyeOfDice) {
 			return eyeOfDice === eyes;
 		});
-		var x = new Dices();
-		Dices.apply(x, filteredEyes); /* new */
-		return x;
+        return new Dices(filteredEyes);
 	};
 
 	this.allDiceSameLike = function(eyes) {
@@ -89,7 +85,9 @@ var Dices = function() {
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
 
-    var dice = new Dices(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5);
+    var eyes = argumentsToArray(arguments);
+
+    var dice = new Dices(eyes);
     // with internal max, sum, first, this separates rules from array logic
 
 	// TODO sort functions by public/private, private down - after dices has been pulled out
