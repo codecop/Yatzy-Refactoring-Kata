@@ -35,6 +35,7 @@ var Dices = function(dice) {
 		}, {});
     };
 
+    // TODO eyesWithCountOfAtLeast() returns Dices and max is function of Dices
 	this.eyesWithCountOfAtLeast = function(limit) {
 	    return this.eyesWithCountOf(function(count) {
 	        return count >= limit;
@@ -90,33 +91,27 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
 	// TODO sort functions by public/private, private down - after dices has been pulled out
 
-    this.ones = function()
-     {
+    this.ones = function() {
 		return dice.diceWith(1).sum();
     };
 
-    this.twos = function()
-    {
+    this.twos = function() {
 		return dice.diceWith(2).sum();
     };
 
-    this.threes = function()
-    {
+    this.threes = function() {
 		return dice.diceWith(3).sum();
     };
 
-    this.fours = function()
-    {
+    this.fours = function() {
 		return dice.diceWith(4).sum();
     };
 
-    this.fives = function()
-    {
+    this.fives = function() {
 		return dice.diceWith(5).sum();
     };
 
-    this.sixes = function()
-    {
+    this.sixes = function() {
 		return dice.diceWith(6).sum();
     };
 
@@ -164,6 +159,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 
     this.smallStraight = function() {
         var eyes = dice.eyesWithCountOfExactly(1);
+        // TODO (maybe) move equals to Dices, do not pollute array, implement easier for special case [int]
         if ([1,2,3,4,5].equals(eyes)) {
             return dice.sum();
         }

@@ -1,15 +1,26 @@
+Retro 20151127
+--------------
+* only two months this time
+* short session only 1h work time
+* Teamviewer does not work for Martin any more, need another tool
+  use only screen sharing today, switch presenter between sessions
+* Do not want to patch general objects th
+
+* Plan for next time: Goal is to
+  TODO plan for next session:
+
 Retro 20150925
 --------------
 * Cool to use dynamic arguments and dynamic construction.
 * We see more of magic JS today, all the basic logic was finished.
-* only 2 months passed, no problem to start again.
+* Inly two months passed, no problem to start again.
 * Good to have a plan for next time at end of retrospective.
 * Cool to do some refactoring step by step. Nice to see green.
 * Baby steps worked out fine.
 * Mocha error messages are difficult to read, esp. in small terminal.
 * REPL would have been nice for prototyping JS specific things like arguments.
 
-* Plan for next time: Goal; is to
+* Plan for next time: Goal is to
   return Dices instead of [] so we can call ..sum and ..max instead of sum(..)
 * Need to cleanup dynamic Dices creation, use diceWith in all places, continue replacement
 * Same for max().
@@ -22,20 +33,20 @@ Retro 20150724
 * zero warnings first
 * good, we committed frequently
 * we did not make any breaks (forgot the timer)
-* we learned that files need to be required if we want to test them, not assert's fault
-* we learned that IDEA uses fancy color codes in navigator
+* we learned that files need to be required if we want to test them, it is not assert's fault
+* Peter learned that IDEA uses fancy color codes in navigator
 
 * will we be able to read it in two months?
-* plan for next time is to change design, create object for Dices, that is not Yatzi specific
+* plan for next time is to change design, create object for Dices, which is not Yatzi specific
 
 Retro 20150417
 --------------
-* idea: do at least one check-in per Pomodoro
+* idea: at least one check-in per Pomodoro
 * focus to replace temp with query.
 
 * took some time to understand code after 2 months
 * Peter changed code alone, maybe should not have done so, only add TODOs
-* Martin likes mocha Watcher, and it runs inside IDEA termninal - great!
+* Martin likes mocha Watcher, and it runs inside IDEA terminal - great!
 * Martin likes instant feedback of mocha watcher runner
 * Peter is shocked by JS type mangling/chaos ;-)
 * maybe should have zero warnings first before doing real work (learning)
@@ -46,11 +57,13 @@ Retro 20150417
 
 Retro 20150225
 --------------
+* during Coding Dojo Vienna
 * identify code smells, make instance invocation consistent
 * rewrite methods functional style
 
 Constraints
 -----------
+* extract low level classes (constraint added later)
 * rewrite methods functional style
 * focus to replace temp with query
 * small functions

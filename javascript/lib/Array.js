@@ -1,6 +1,10 @@
-// see http://stackoverflow.com/a/14853974/104143
+/**
+ * Equals on arrays containing primitives.
+ * @see http://stackoverflow.com/a/14853974/104143
+ */
 Array.prototype.equals = function (array) {
     "use strict";
+    // TODO revisit comments, remove or make code clear
 
     // if the other array is a falsy value, return
     if (!array) {
