@@ -1,16 +1,6 @@
 /* global module, require */ // Node.JS
 require("./Array");
 
-function argumentsToArray(obj) {
-    var array = [];
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            array.push(obj[key]);
-        }
-    }
-    return array;
-}
-
 var Dices = function(dice) {
 	"use strict";
 
@@ -85,9 +75,17 @@ var Dices = function(dice) {
 var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfDice5) {
 	"use strict";
 
-    var eyes = argumentsToArray(arguments);
+    function argumentsToArray(obj) {
+        var array = [];
+        for (var key in obj) {
+            if (obj.hasOwnProperty(key)) {
+                array.push(obj[key]);
+            }
+        }
+        return array;
+    }
 
-    var dice = new Dices(eyes);
+    var dice = new Dices(argumentsToArray(arguments));
     // with internal max, sum, first, this separates rules from array logic
 
 	// TODO sort functions by public/private, private down - after dices has been pulled out
@@ -99,7 +97,7 @@ var Yatzy = function(eyesOfDice1, eyesOfDice2, eyesOfDice3, eyesOfDice4, eyesOfD
 	}
 
     this.ones = function()
-    {
+     {
 		return dice.diceWithX(1).sum();
     };
 
