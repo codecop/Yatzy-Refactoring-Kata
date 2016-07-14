@@ -19,7 +19,7 @@ var Dices = function(dice) {
             return dice.filter(function(eyeOfDice) {
                 return eyeOfDice === eyes;
             });
-        };
+        }
 
 		return diceWithX(eyes).length === dice.length;
 	};
